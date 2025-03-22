@@ -4,7 +4,7 @@ import requests
 from selenium import webdriver
 
 # Discord Webhook URL
-WEBHOOK_URL = "YOUR_DISCORD_WEBHOOK_URL"
+WEBHOOK_URL = "https://discord.com/api/webhooks/1352103069823008768/QcPEZjYFQp52amD7mr2fA0Jsq5mXT-E4RmRHG9mO_jH0wPQys0UkZjHbkDprSDmallJ4"
 
 # Set up Selenium Chrome options
 options = webdriver.ChromeOptions()
