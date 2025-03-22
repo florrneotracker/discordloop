@@ -16,7 +16,7 @@ options.add_argument("--disable-gpu")  # Not needed but can improve performance
 # Start infinite loop
 while True:
     # Initialize WebDriver
-    driver = webdriver.Chrome(executable_path="/usr/local/bin/chromedriver", options=options)
+    driver = webdriver.Chrome(options=options)
     
     # Open webpage
     driver.get("https://guestydaysreal.pythonanywhere.com/super?pretty=true&judgement=true")
