@@ -1,0 +1,26 @@
+name: Run Python Script Every 5 Minutes
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+
+  workflow_dispatch:  # Allows manual trigger
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Install dependencies
+        run: pip install selenium requests 
+
+      - name: Run script
+        run: python script.py
