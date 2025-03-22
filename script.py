@@ -31,14 +31,14 @@ driver.save_screenshot(screenshot_path)
 driver.quit()
 
 # Send screenshot to Discord
-    with open(screenshot_path, "rb") as file:
-        response = requests.post(
-            WEBHOOK_URL,
-            files={
-                "file": file,
-                "payload_json": (None, f'{{"content": "Time:<t:{round(time.time())}>\"}}')
-            }
-        )
+with open(screenshot_path, "rb") as file:
+    response = requests.post(
+        WEBHOOK_URL,
+        files={
+            "file": file,
+            "payload_json": (None, f'{{"content": "Time:<t:{round(time.time())}>\"}}')
+         }
+    )
 
 # Delete screenshot after sending
 os.remove(screenshot_path)
