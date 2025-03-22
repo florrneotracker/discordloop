@@ -4,7 +4,7 @@ import requests
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
-
+WEBHOOK_URL = "https://discord.com/api/webhooks/1352103069823008768/QcPEZjYFQp52amD7mr2fA0Jsq5mXT-E4RmRHG9mO_jH0wPQys0UkZjHbkDprSDmallJ4"
 # Set up Selenium Chrome options
 options = webdriver.ChromeOptions()
 options.add_argument("--headless")  
@@ -31,8 +31,14 @@ driver.save_screenshot(screenshot_path)
 driver.quit()
 
 # Send screenshot to Discord
-with open(screenshot_path, "rb") as file:
-    response = requests.post(WEBHOOK_URL, files={"file": file})
+    with open(screenshot_path, "rb") as file:
+        response = requests.post(
+            WEBHOOK_URL,
+            files={
+                "file": file,
+                "payload_json": (None, f'{{"content": "Time:<t:{round(time.time())}>\"}}')
+            }
+        )
 
 # Delete screenshot after sending
 os.remove(screenshot_path)
