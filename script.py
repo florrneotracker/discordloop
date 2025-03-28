@@ -35,8 +35,7 @@ with open(screenshot_path, "rb") as file:
     response = requests.post(
         WEBHOOK_URL,
         files={
-            "file": file,
-            "payload_json": (None, f'{{"content": "Time:<t:{round(time.time())}>\"}}')
+            "payload_json": (None, f'{{"content": "Kys Mayank"}}')
          }
     )
 
